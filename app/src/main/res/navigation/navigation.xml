@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.quiz.MainFragment"
+        android:label="Main Screen"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_mainFragment_to_menuFragment"
+            app:destination="@id/MenuFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/MenuFragment"
+        android:name="com.example.quiz.MenuFragment"
+        android:label="Menu"
+        tools:layout="@layout/fragment_menu">
+        <action
+            android:id="@+id/action_menuFragment_to_quizFragment"
+            app:destination="@id/QuizFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_rulesFragment"
+            app:destination="@id/RulesFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/QuizFragment"
+        android:name="com.example.quiz.QuizFragment"
+        android:label="Quiz"
+        tools:layout="@layout/fragment_quiz" />
+
+    <fragment
+        android:id="@+id/RulesFragment"
+        android:name="com.example.quiz.RulesFragment"
+        android:label="Rules"
+        tools:layout="@layout/fragment_rules">
+        <action
+            android:id="@+id/action_rulesFragment_to_whatToDoFragment"
+            app:destination="@id/WhatToDoFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/WhatToDoFragment"
+        android:name="com.example.quiz.WhatToDoFragment"
+        android:label="What To Do"
+        tools:layout="@layout/fragment_what_to_do" />
+
+</navigation>

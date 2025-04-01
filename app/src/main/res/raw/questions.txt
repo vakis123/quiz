@@ -1,0 +1,3 @@
+What is the capital of France?|Paris|London|Berlin|Madrid
+Which planet is known as the Red Planet?|Mars|Earth|Jupiter|Venus
+Who wrote 'To Kill a Mockingbird'?|Harper Lee|Mark Twain|J.K. Rowling|Ernest Hemingway
