@@ -14,7 +14,7 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
         val rulesButton: Button = view.findViewById(R.id.rulesButton)
 
         quizButton.setOnClickListener {
-            findNavController().navigate(R.id.action_menuFragment_to_quizFragment)
+            findNavController().navigate(R.id.action_menuFragment_to_level1Fragment)
         }
 
         rulesButton.setOnClickListener {

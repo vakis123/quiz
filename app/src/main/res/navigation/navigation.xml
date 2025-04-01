@@ -2,6 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
     app:startDestination="@id/mainFragment">
 
     <fragment
@@ -11,36 +12,115 @@
         tools:layout="@layout/fragment_main">
         <action
             android:id="@+id/action_mainFragment_to_menuFragment"
-            app:destination="@id/MenuFragment" />
+            app:destination="@id/menuFragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/MenuFragment"
+        android:id="@+id/menuFragment"
         android:name="com.example.quiz.MenuFragment"
-        android:label="Menu"
-        tools:layout="@layout/fragment_menu">
+        android:label="MenuFragment">
         <action
-            android:id="@+id/action_menuFragment_to_quizFragment"
-            app:destination="@id/QuizFragment" />
+            android:id="@+id/action_menuFragment_to_level1Fragment"
+            app:destination="@id/level1Fragment" />
         <action
             android:id="@+id/action_menuFragment_to_rulesFragment"
-            app:destination="@id/RulesFragment" />
+            app:destination="@id/rulesFragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/QuizFragment"
-        android:name="com.example.quiz.QuizFragment"
-        android:label="Quiz"
-        tools:layout="@layout/fragment_quiz" />
+        android:id="@+id/level1Fragment"
+        android:name="com.example.quiz.Level1Fragment"
+        android:label="Level 1">
+        <action
+            android:id="@+id/action_level1Fragment_to_level2Fragment"
+            app:destination="@id/level2Fragment" />
+        <action
+            android:id="@+id/action_level1Fragment_to_gameOverFragment"
+            app:destination="@id/gameOverFragment" />
+        <action
+            android:id="@+id/action_level1Fragment_to_menuFragment"
+            app:destination="@id/menuFragment"
+            app:popUpTo="@id/menuFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 
     <fragment
-        android:id="@+id/RulesFragment"
+        android:id="@+id/level2Fragment"
+        android:name="com.example.quiz.Level2Fragment"
+        android:label="Level 2">
+        <action
+            android:id="@+id/action_level2Fragment_to_level3Fragment"
+            app:destination="@id/level3Fragment" />
+        <action
+            android:id="@+id/action_level2Fragment_to_gameOverFragment"
+            app:destination="@id/gameOverFragment" />
+        <action
+            android:id="@+id/action_level2Fragment_to_menuFragment"
+            app:destination="@id/menuFragment"
+            app:popUpTo="@id/menuFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/level3Fragment"
+        android:name="com.example.quiz.Level3Fragment"
+        android:label="Level 3"
+        tools:layout="@layout/fragment_level3">
+        <action
+            android:id="@+id/action_level3Fragment_to_level4Fragment"
+            app:destination="@id/level4Fragment" />
+        <action
+            android:id="@+id/action_level3Fragment_to_gameOverFragment"
+            app:destination="@id/gameOverFragment" />
+        <action
+            android:id="@+id/action_level3Fragment_to_menuFragment"
+            app:destination="@id/menuFragment"
+            app:popUpTo="@id/menuFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/level4Fragment"
+        android:name="com.example.quiz.Level4Fragment"
+        android:label="Level 4"
+        tools:layout="@layout/fragment_level4">
+        <action
+            android:id="@+id/action_level4Fragment_to_level5Fragment"
+            app:destination="@id/level5Fragment" />
+        <action
+            android:id="@+id/action_level4Fragment_to_gameOverFragment"
+            app:destination="@id/gameOverFragment" />
+        <action
+            android:id="@+id/action_level4Fragment_to_menuFragment"
+            app:destination="@id/menuFragment"
+            app:popUpTo="@id/menuFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/level5Fragment"
+        android:name="com.example.quiz.Level5Fragment"
+        android:label="Level 5"
+        tools:layout="@layout/fragment_level5">
+        <action
+            android:id="@+id/action_level5Fragment_to_menuFragment"
+            app:destination="@id/menuFragment"
+            app:popUpTo="@id/menuFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_level5Fragment_to_gameOverFragment"
+            app:destination="@id/gameOverFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/rulesFragment"
         android:name="com.example.quiz.RulesFragment"
-        android:label="Rules"
-        tools:layout="@layout/fragment_rules">
+        android:label="RulesFragment">
         <action
             android:id="@+id/action_rulesFragment_to_whatToDoFragment"
-            app:destination="@id/WhatToDoFragment" />
+            app:destination="@id/WhatToDoFragment"
+            app:popUpTo="@id/menuFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
@@ -48,5 +128,16 @@
         android:name="com.example.quiz.WhatToDoFragment"
         android:label="What To Do"
         tools:layout="@layout/fragment_what_to_do" />
+
+    <fragment
+        android:id="@+id/gameOverFragment"
+        android:name="com.example.quiz.GameOverFragment"
+        android:label="GameOverFragment">
+        <action
+            android:id="@+id/action_gameOverFragment_to_menuFragment"
+            app:destination="@id/menuFragment"
+            app:popUpTo="@id/menuFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 
 </navigation>
