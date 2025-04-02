@@ -97,18 +97,23 @@ class Level5Fragment : Fragment(R.layout.fragment_level5) {
     private fun startNewWord() {
         if (currentWordIndex >= words.size) {
             // All words completed
-            findNavController().navigate(R.id.action_level5Fragment_to_menuFragment)
-            return
+            viewModel.completeLevel(5)
+            if (viewModel.isAllLevelsCompleted()) {
+                viewModel.resetGame() // Reset the game after completing all levels
+                findNavController().navigate(R.id.action_level5Fragment_to_winFragment)
+            } else {
+                findNavController().navigate(R.id.action_level5Fragment_to_levelSelectionFragment)
+            }
+        } else {
+            currentWord = words[currentWordIndex]
+            guessedLetters.clear()
+            wrongGuesses = 0
+            hangmanView.setWrongGuesses(0)
+            updateWordDisplay()
+            updateTriesLeft()
+            enableAllButtons()
+            questionNumberText.text = "Επίπεδο 5 - Λέξη ${currentWordIndex + 1}/5"
         }
-
-        currentWord = words[currentWordIndex]
-        guessedLetters.clear()
-        wrongGuesses = 0
-        hangmanView.setWrongGuesses(0)
-        updateWordDisplay()
-        updateTriesLeft()
-        enableAllButtons()
-        questionNumberText.text = "Επίπεδο 5 - Λέξη ${currentWordIndex + 1}/5"
     }
 
     private fun updateWordDisplay() {

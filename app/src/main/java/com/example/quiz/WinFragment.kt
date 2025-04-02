@@ -7,8 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 
-class GameOverFragment : Fragment(R.layout.fragment_game_over) {
-
+class WinFragment : Fragment(R.layout.fragment_win) {
     private val viewModel: QuizViewModel by activityViewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -16,8 +15,8 @@ class GameOverFragment : Fragment(R.layout.fragment_game_over) {
 
         val returnToMenuButton: Button = view.findViewById(R.id.returnToMenuButton)
         returnToMenuButton.setOnClickListener {
-            viewModel.resetGame()
-            findNavController().navigate(R.id.action_gameOverFragment_to_menuFragment)
+            viewModel.resetGame() // Reset the game when returning to menu
+            findNavController().navigate(R.id.action_winFragment_to_menuFragment)
         }
     }
 } 

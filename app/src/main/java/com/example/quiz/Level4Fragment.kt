@@ -173,9 +173,15 @@ class Level4Fragment : Fragment(R.layout.fragment_level4) {
                     currentPairIndex++
                     matchedPairs = 0
                     
-                    if (currentPairIndex >= 10) {
+                    if (startIndex+4>=wordPairs.size) {
                         // All levels completed
-                        findNavController().navigate(R.id.action_level4Fragment_to_level5Fragment)
+                        viewModel.completeLevel(4)
+                        if (viewModel.isAllLevelsCompleted()) {
+                            viewModel.resetGame() // Reset the game after completing all levels
+                            findNavController().navigate(R.id.action_level4Fragment_to_winFragment)
+                        } else {
+                            findNavController().navigate(R.id.action_level4Fragment_to_levelSelectionFragment)
+                        }
                     } else {
                         displayWordPairs()
                     }

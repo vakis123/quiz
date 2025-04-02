@@ -82,8 +82,14 @@ class Level1Fragment : Fragment(R.layout.fragment_level1) {
             currentQuestionIndex++
             
             if (currentQuestionIndex >= questions.size) {
-                // Level completed successfully
-                findNavController().navigate(R.id.action_level1Fragment_to_level2Fragment)
+                // All questions completed
+                viewModel.completeLevel(1)
+                if (viewModel.isAllLevelsCompleted()) {
+                    viewModel.resetGame() // Reset the game after completing all levels
+                    findNavController().navigate(R.id.action_level1Fragment_to_winFragment)
+                } else {
+                    findNavController().navigate(R.id.action_level1Fragment_to_levelSelectionFragment)
+                }
             } else {
                 displayQuestion()
             }
@@ -96,8 +102,14 @@ class Level1Fragment : Fragment(R.layout.fragment_level1) {
                 // Game over
                 findNavController().navigate(R.id.action_level1Fragment_to_gameOverFragment)
             } else if (currentQuestionIndex >= questions.size) {
-                // Level completed successfully
-                findNavController().navigate(R.id.action_level1Fragment_to_level2Fragment)
+                // All questions completed
+                viewModel.completeLevel(1)
+                if (viewModel.isAllLevelsCompleted()) {
+                    viewModel.resetGame() // Reset the game after completing all levels
+                    findNavController().navigate(R.id.action_level1Fragment_to_winFragment)
+                } else {
+                    findNavController().navigate(R.id.action_level1Fragment_to_levelSelectionFragment)
+                }
             } else {
                 displayQuestion()
             }
