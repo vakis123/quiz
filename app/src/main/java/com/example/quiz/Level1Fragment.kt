@@ -62,6 +62,7 @@ class Level1Fragment : Fragment(R.layout.fragment_level1) {
                 Pair(question, answer)
             }
             .toList()
+            .shuffled()
         reader.close()
 
         if (questions.isNotEmpty()) {

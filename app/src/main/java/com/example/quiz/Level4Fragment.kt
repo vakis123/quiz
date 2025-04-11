@@ -100,7 +100,7 @@ class Level4Fragment : Fragment(R.layout.fragment_level4) {
 
         if (chunkedPairs.isNotEmpty()) {
             // Take the first 5 pairs from the first chunk (you can adjust based on your needs)
-            val selectedPairs = chunkedPairs.shuffled().take(5)
+            val selectedPairs = chunkedPairs.shuffled()
             wordPairs = selectedPairs.flatten()
             displayWordPairs()
         }
@@ -111,7 +111,7 @@ class Level4Fragment : Fragment(R.layout.fragment_level4) {
         val endIndex = minOf(startIndex + 4, wordPairs.size)
         val currentLevelPairs = wordPairs.subList(startIndex, endIndex)
 
-        questionNumberText.text = "Επίπεδο $currentLevel - Αντιστοίχιση ${currentPairIndex + 1}/5"
+        questionNumberText.text = "Επίπεδο $currentLevel - Αντιστοίχιση ${currentPairIndex + 1}/10"
 
         // Shuffle the words
         val leftWords = currentLevelPairs.map { it.leftWord }.shuffled()

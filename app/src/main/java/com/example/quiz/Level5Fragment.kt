@@ -66,7 +66,6 @@ class Level5Fragment : Fragment(R.layout.fragment_level5) {
             }
             .toList()
             .shuffled()
-            .take(5)
         reader.close()
 
         if (words.isNotEmpty()) {
@@ -79,6 +78,7 @@ class Level5Fragment : Fragment(R.layout.fragment_level5) {
         letters.forEachIndexed { index, letter ->
             val button = Button(requireContext()).apply {
                 text = letter.toString()
+                textSize = 24f
                 layoutParams = GridLayout.LayoutParams().apply {
                     width = 0
                     height = GridLayout.LayoutParams.WRAP_CONTENT
@@ -112,7 +112,7 @@ class Level5Fragment : Fragment(R.layout.fragment_level5) {
             updateWordDisplay()
             updateTriesLeft()
             enableAllButtons()
-            questionNumberText.text = "Επίπεδο 5 - Λέξη ${currentWordIndex + 1}/5"
+            questionNumberText.text = "Επίπεδο 5 - Λέξη ${currentWordIndex + 1}/15"
         }
     }
 

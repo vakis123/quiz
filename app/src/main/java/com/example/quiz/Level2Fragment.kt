@@ -70,6 +70,7 @@ class Level2Fragment : Fragment(R.layout.fragment_level2) {
                 )
             }
             .toList()
+            .shuffled()
         reader.close()
 
         if (questions.isNotEmpty()) {
